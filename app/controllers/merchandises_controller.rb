@@ -69,6 +69,6 @@ class MerchandisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def merchandise_params
-      params.require(:merchandise).permit(:title, :price)
+      params.require(:merchandise).permit(:title, :price, :image)
     end
 end

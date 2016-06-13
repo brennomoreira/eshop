@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
-
+  devise_for :admins
+  devise_for :users
   resources :orders
   resources :merchandises
-  resources :users
-
+  root to: "orders#index"
+  
+  # root to:
   get '/orders' => 'orders#index'
+
   # get '/orders' => 'orders#_form'
   #resources :orders
   # The priority is based upon order of creation: first created -> highest priority.

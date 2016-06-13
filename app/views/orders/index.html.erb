@@ -1,9 +1,23 @@
-<h1> yo yo yo homes yo </h1>
+<!-- <header> -->
+  <!-- <div class="logo">STICKY MENU ON SCROLL!</div> -->
+  <!-- <div class="intro">Some dumbass tagline goes here</div> -->
+  <!-- <div class="menu"><%= link_to "Sign Up", new_user_registration_path %> <%= link_to "Sign in", new_user_session_path %> -->
+    <%#= link_to "Logout", destroy_user_session_path, method: :delete, data:{confirm: "Are you sure?"} %>
+<!-- </div> -->
+
+<!-- </header> -->
+
+
+
+
+
+<h1> sup homes </h1>
 
 <table>
   <thead>
     <tr>
       <th>Name of the order</th>
+      <th> User </th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -12,12 +26,38 @@
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.name %></td>
-
+      <td><%= order.user.email %></td>
       <td><%= link_to 'Show', order %></td>
+      <% if order.user == current_user %>
       <td><%= link_to 'Edit', edit_order_path(order) %></td>
       <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
+
+  <div class="container">
+    <input type="radio" class="radio" name="progress" value="five" id="five">
+    <label for="five" class="label">5%</label>
+
+    <input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked>
+    <label for="twentyfive" class="label">47%</label>
+
+    <input type="radio" class="radio" name="progress" value="fifty" id="fifty">
+    <label for="fifty" class="label">50%</label>
+
+    <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
+    <label for="seventyfive" class="label">75%</label>
+
+    <input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
+    <label for="onehundred" class="label">100%</label>
+
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+
+
+
 </tbody>
 </table>
 

@@ -7,6 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
+         <header>
+           <!-- <div class="logo">STICKY MENU ON SCROLL!</div> -->
+           <!-- <div class="intro">Some dumbass tagline goes here</div> -->
+           <div class="menu"><h1><%= link_to "Sign Up", new_user_registration_path %> <%= link_to "Sign in", new_user_session_path %>
+             <%= link_to "Logout", destroy_user_session_path, method: :delete, data:{confirm: "Are you sure?"} %> </h1>
+         </div>
+
+         </header>
+         <%#= link_to "Sign Up", new_user_registration_path %>
+         <%#= link_to "Sign in", new_user_session_path %>
+         <%#= link_to "Logout", destroy_user_session_path, method: :delete, data:{confirm: "Are you sure?"} %>
+         <%#= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
 <%= yield %>
 

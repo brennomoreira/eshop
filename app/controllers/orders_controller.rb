@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index , :show]
 
 
 def index
@@ -13,17 +14,17 @@ def edit
 end
 
 def new
-  @order = Order.new
+  @order = current_user.orders.build
 end
 
 
 
 def create
-  @order = Order.new(order_params)
+  @order = current_user.orders.build(order_params)
 
   respond_to do |format|
     if @order.save
-      format.html { redirect_to @order, notice: 'order was successfully created.' }
+      format.html { redirect_to @order, notice: 'niiiiiiiiiiiiiiice duuude' }
       format.json { render :show, status: :created, location: @order }
     else
       format.html { render :new }
@@ -37,7 +38,7 @@ end
 def update
   respond_to do |format|
     if @order.update(order_params)
-      format.html { redirect_to @order, notice: 'order was successfully updated.' }
+      format.html { redirect_to @order, notice: 'niiiiiiiiiiiiiiice duuude' }
       format.json { render :show, status: :ok, location: @order }
     else
       format.html { render :edit }
@@ -51,7 +52,7 @@ end
 def destroy
   @order.destroy
   respond_to do |format|
-    format.html { redirect_to orders_url, notice: 'order was successfully destroyed.' }
+    format.html { redirect_to orders_url, notice: 'noooooooooooo duuude' }
     format.json { head :no_content }
   end
 end
@@ -59,7 +60,7 @@ end
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_order
-    @order = order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
