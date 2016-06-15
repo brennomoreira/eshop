@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :orders
   resources :merchandises
   root to: "orders#index"
-  
+  # root to: "views#welcome"
   # root to:
   get '/orders' => 'orders#index'
-
+  get '/welcome' => 'static#welcome'
   # get '/orders' => 'orders#_form'
   #resources :orders
   # The priority is based upon order of creation: first created -> highest priority.
